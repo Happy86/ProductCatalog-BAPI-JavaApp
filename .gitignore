@@ -1,4 +1,13 @@
+#
+# 'git ls-files -i --exclude-standard' aufrufen,
+# falls unsicher, ob nach Aenderung zu viel ignoriert wird.
+#
+# Jedes Unterverzeichnis kann auch eine extra .gitignore-Datei
+# beinhalten.
+#
+
 *.class
+bin
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -10,3 +19,22 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+
+# sonstiges
+
+.vagrant/
+*~
+*.bak
+Backup
+backup
+*.pdf
+.metadata
+.settings
+.DS_Store
+.mailmap
+*.bak
+*.old
+*.swp
+*.o
+*.obj
