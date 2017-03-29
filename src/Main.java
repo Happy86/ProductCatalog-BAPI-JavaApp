@@ -1,11 +1,10 @@
 import com.sap.mw.jco.JCO;
 
 public class Main {
-	private static SAPVerbindung verbindung = new SAPVerbindung();
-
 	public static void main(String[] args) {
 		Config einstellungen = new Config("sap-zugangsdaten.properties");
 
+		SAPVerbindung verbindung = new SAPVerbindung();
 		verbindung.openConnectionToSAP(einstellungen.getClientSAP(),
 							einstellungen.getLogin(),
 							einstellungen.getPasswort(),
