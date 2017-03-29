@@ -6,6 +6,11 @@
 # beinhalten.
 #
 
+# projekt
+## config
+sap-zugangsdaten.properties
+
+# java
 .classpath
 *.class
 bin
