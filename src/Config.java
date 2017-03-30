@@ -1,59 +1,95 @@
+/*
+ * @class   Config
+ * @authors Tamino, Salvatore, Andreas (ADV Boeblingen, I32-2016/17)
+ * @since   2017-03-29
+ * 
+ * Diese Klasse dient dazu eine Java nach Properties Syntax formatierte
+ * Datei zu parsen und als Attribute (ueber get-Methoden) zur Verfuegung
+ * zu stellen.
+ * 
+ * Bei der Initialisierung des Objekts ist der Pfad samt Dateiname anzugeben.
+ * 
+ */
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
-	private String clientSAP;		// client number
-	private String login;			// username
-	private String passwort;		// password
-	private String language;		// language
-	private String server;			// SAP router
-	private String systemNumber;	// system number
+    private String clientSAP;       // client number
+    private String login;           // username
+    private String passwort;        // password
+    private String language;        // language
+    private String server;          // SAP router
+    private String systemNumber;    // system number
 
-	private InputStream inputFile;
-	private Properties propertiesObjekt = new Properties();
-	
-	public Config(String configpfad) {
-		try {
-			inputFile = new FileInputStream(configpfad);
-			propertiesObjekt.load(inputFile);
+    private InputStream inputFile;
+    private Properties propertiesObjekt = new Properties();
 
-			this.clientSAP = propertiesObjekt.getProperty("clientSAP");
-			this.login = propertiesObjekt.getProperty("login");
-			this.passwort = propertiesObjekt.getProperty("passwort");
-			this.language = propertiesObjekt.getProperty("language");
-			this.server = propertiesObjekt.getProperty("server");
-			this.systemNumber = propertiesObjekt.getProperty("systemNumber");
+    /*
+     * Config Konstruktor.
+     * 
+     * @param       String          Pfad inkl. Dateiname zur .properties Konfigurationsdatei.
+     * @exception   IOException     IOException wenn die Konfigurationsdatei nicht vorhanden oder nicht lesbar ist.
+     */
+    public Config(String configpfad) {
+        try {
+            inputFile = new FileInputStream(configpfad);
+            propertiesObjekt.load(inputFile);
 
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}
-	}
+            this.clientSAP = propertiesObjekt.getProperty("clientSAP");
+            this.login = propertiesObjekt.getProperty("login");
+            this.passwort = propertiesObjekt.getProperty("passwort");
+            this.language = propertiesObjekt.getProperty("language");
+            this.server = propertiesObjekt.getProperty("server");
+            this.systemNumber = propertiesObjekt.getProperty("systemNumber");
 
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
 
-	public String getClientSAP() {
-		return this.clientSAP;
-	}
+    /*
+     * @return String ClientSAP
+     */
+    public String getClientSAP() {
+        return this.clientSAP;
+    }
 
-	public String getLogin() {
-		return this.login;
-	}
+    /*
+     * @return String login (Benutzername)
+     */
+    public String getLogin() {
+        return this.login;
+    }
 
-	public String getPasswort() {
-		return this.passwort;
-	}
+    /*
+     * @return String passwort
+     */
+    public String getPasswort() {
+        return this.passwort;
+    }
 
-	public String getLanguage() {
-		return this.language;
-	}
+    /*
+     * @return String language
+     */
+    public String getLanguage() {
+        return this.language;
+    }
 
-	public String getServer() {
-		return this.server;
-	}
+    /*
+     * @return String server (SAP Router)
+     */
+    public String getServer() {
+        return this.server;
+    }
 
-	public String getSystemNumber() {
-		return this.systemNumber;
-	}
+    /*
+     * @return String systemNumber
+     */
+    public String getSystemNumber() {
+        return this.systemNumber;
+    }
 }
