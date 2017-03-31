@@ -1,6 +1,7 @@
 /*
  * @class   Config
  * @authors Tamino, Salvatore, Andreas (ADV Boeblingen, I32-2016/17)
+ * @license ISC License (ISC)
  * @since   2017-03-29
  * 
  * Diese Klasse dient dazu eine Java nach Properties Syntax formatierte
