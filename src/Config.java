@@ -4,7 +4,7 @@
  * @license ISC License (ISC)
  * @since   2017-03-29
  * 
- * Diese Klasse dient dazu eine Java nach Properties Syntax formatierte
+ * Diese Klasse dient dazu eine nach Java Properties Syntax formatierte
  * Datei zu parsen und als Attribute (ueber get-Methoden) zur Verfuegung
  * zu stellen.
  * 
