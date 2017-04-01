@@ -26,12 +26,12 @@ public class SAPVerbindung {
         this.einstellungen = einstellungen;
 
         // Verbindungsobjekt (JCO.Client) mit Zugangsdaten befuellen
-        this.mConnection = JCO.createClient(this.einstellungen.getClientSAP,
-                                            this.einstellungen.getLogin,
-                                            this.einstellungen.getPasswort,
-                                            this.einstellungen.getLanguage,
-                                            this.einstellungen.getServer,
-                                            this.einstellungen.getSystemNumber);
+        this.mConnection = JCO.createClient(this.einstellungen.getClientSAP(),
+                                            this.einstellungen.getLogin(),
+                                            this.einstellungen.getPasswort(),
+                                            this.einstellungen.getLanguage(),
+                                            this.einstellungen.getServer(),
+                                            this.einstellungen.getSystemNumber());
     }
 
     /*
