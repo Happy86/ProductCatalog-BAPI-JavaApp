@@ -12,29 +12,34 @@
 import com.sap.mw.jco.JCO;
 
 public class SAPVerbindung {
+    private Config einstellungen;
     private JCO.Client mConnection;
+
+
+    /*
+     * Konstruktor dem ein Einstellungsobjekt uebergeben wird.
+     *
+     * @param   Config    Objekt mit Zugangsdaten
+     */
+    public SAPVerbindung(Config einstellungen) {
+        // Einstellungsobjekt in den Attribut speichern
+        this.einstellungen = einstellungen;
+
+        // Verbindungsobjekt (JCO.Client) mit Zugangsdaten befuellen
+        this.mConnection = JCO.createClient(this.einstellungen.getClientSAP,
+                                            this.einstellungen.getLogin,
+                                            this.einstellungen.getPasswort,
+                                            this.einstellungen.getLanguage,
+                                            this.einstellungen.getServer,
+                                            this.einstellungen.getSystemNumber);
+    }
 
     /*
      * Diese Methode baut eine Verbindung mit einem SAP Server auf und
      * hinterlegt diese im privaten Attribut 'mConnection' (getMConnection).
-     * 
-     * @param String clientSAP
-     * @param String login
-     * @param String passwort
-     * @param String language
-     * @param String server
-     * @param String systemNumber
-     * 
      */
-    public void openConnectionToSAP(String clientSAP,
-                                    String login,
-                                    String passwort,
-                                    String language,
-                                    String server,
-                                    String systemNumber) {
-        // Verbindungsdaten
+    public void openConnectionToSAP() {
         System.out.print("Verbinde mich mit SAP ... ");
-        this.mConnection = JCO.createClient(clientSAP, login, passwort, language, server, systemNumber);
         // Verbindung herstellen
         this.mConnection.connect();
         System.out.println("verbunden");
@@ -43,7 +48,6 @@ public class SAPVerbindung {
 
     /*
      * Diese Methode schlieszt die Verbindung zum SAP Server.
-     * 
      */
     public void closeConnectionToSAP() {
         this.mConnection.disconnect();
@@ -53,7 +57,6 @@ public class SAPVerbindung {
      * Uber diese Methode kann man auf das Attribut mConnection zugreifen.
      * 
      * @return JCO.Client mConnection
-     * 
      */
     public JCO.Client getMConnection() {
         return this.mConnection;

@@ -14,13 +14,8 @@ public class Main {
         Config einstellungen = new Config("sap-zugangsdaten.properties");
 
         // Verbindung zum SAP Server aufbauen.
-        SAPVerbindung verbindung = new SAPVerbindung();
-        verbindung.openConnectionToSAP(einstellungen.getClientSAP(),
-                                       einstellungen.getLogin(),
-                                       einstellungen.getPasswort(),
-                                       einstellungen.getLanguage(),
-                                       einstellungen.getServer(),
-                                       einstellungen.getSystemNumber());
+        SAPVerbindung verbindung = new SAPVerbindung(einstellungen);
+        verbindung.openConnectionToSAP();
 
         // TODO: hier code einfuegen :-)
 
