@@ -23,7 +23,7 @@ Es soll eine leicht zu bedienende grafische Oberfläche entstehen.
   * Unter Linux im lib Verzeichnis von Java (unter Arch Linux z.B. 
     /usr/lib/jvm/default/lib/amd64 oder /usr/lib32/jvm/default/lib/i386)
     die libsapjco3.so für i386 oder x86_64 hinterlegen.
-  * Unter Windows .dll Dateien hinterlegen. 
+  * Unter Windows .dll Dateien unter "C:\Windows\System32\" hinterlegen.
 3. Die Datei sap-zugangsdaten.properties.CHANGE-ME in sap-zugangsdaten.properties
    umbennenen und Zugangsdaten hinterlegen.
 4. Happy Coding. :-)
