@@ -10,6 +10,23 @@
 
 package model;
 
-public class CatalogVariants {
+import java.util.Arrays;
+import java.util.Vector;
 
+public class CatalogVariants {
+    private Vector<String> variantenliste;
+
+    public CatalogVariants(String[] variantenliste) {
+        this.variantenliste = new Vector<String>();
+        this.variantenliste.addAll(Arrays.asList(variantenliste));
+    }
+
+    public CatalogItems getItems(int variantenNummerAusVariantenliste) {
+        return getItems(this.variantenliste.get(variantenNummerAusVariantenliste));
+    }
+
+    public CatalogItems getItems(String nameDerVariante) {
+        // TODO: get CatalogItems from SAP as String array
+        return new CatalogItems(new String[1]);
+    }
 }

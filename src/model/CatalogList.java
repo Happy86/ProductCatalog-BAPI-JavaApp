@@ -22,6 +22,14 @@ public class CatalogList {
         this.katalogliste.addAll(Arrays.asList(katalogliste));
     }
 
+    public CatalogVariants getVariants(int katalogNummerAusKataloglistenVektor) {
+        return getVariants(katalogliste.get(katalogNummerAusKataloglistenVektor));
+    }
+
+    public CatalogVariants getVariants(String nameDesKatalogs) {
+        // TODO: get variants from given catalog from SAP as String array
+        return new CatalogVariants(new String[1]);
+    }
 
     /**
      * @return the katalogliste
@@ -29,13 +37,5 @@ public class CatalogList {
     public Vector<String> getKatalogliste() {
         return katalogliste;
     }
-
-    /**
-     * @param katalogliste the katalogliste to set
-     */
-    public void setKatalogliste(Vector<String> katalogliste) {
-        this.katalogliste = katalogliste;
-    }
-
 
 }
