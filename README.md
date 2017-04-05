@@ -27,3 +27,10 @@ Es soll eine leicht zu bedienende grafische Oberfläche entstehen.
 3. Die Datei sap-zugangsdaten.properties.CHANGE-ME in sap-zugangsdaten.properties
    umbennenen und Zugangsdaten hinterlegen.
 4. Happy Coding. :-)
+
+## Debugging
+### Verbindung zum SAP System
+Wenn beim Verbindungsaufbau Fehler auftreten wird im Projektverzeichnis eine
+dev_rfc.trc erstellt.
+
+In diese Datei werden Fehlermeldungen geschrieben.
