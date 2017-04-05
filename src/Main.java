@@ -1,3 +1,5 @@
+import backend.Verbindungstest;
+
 /*
  * @class   Main
  * @authors Tamino, Salvatore, Andreas (ADV Boeblingen, I32-2016/17)
@@ -22,7 +24,7 @@ public class Main {
                                        einstellungen.getSystemNumber());
 
         // TODO: hier code einfuegen :-)
-
+        new Verbindungstest(verbindung.getMConnection());
 
         // Verbindung zum SAP Server schlieszen.
         verbindung.closeConnectionToSAP();

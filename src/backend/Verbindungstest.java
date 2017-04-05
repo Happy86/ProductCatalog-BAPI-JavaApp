@@ -1,7 +1,5 @@
 package backend;
 
-import java.awt.EventQueue;
-
 import com.sap.mw.jco.*;
 import com.sap.mw.jco.JCO.Repository;
 
@@ -9,12 +7,14 @@ public class Verbindungstest
 {
   JCO.Client mConnection;
     
-  public Verbindungstest()
+  public Verbindungstest(JCO.Client mConnection)
   {
+      this.mConnection = mConnection;
+      
 //	  openConnectionToSAP(");//TODO
 	  //openConnectionToSAP(");
     connectionAttributes();
-    closeConnectionToSAP();
+//    closeConnectionToSAP();
   }
   
   public void connectionAttributes() 
@@ -29,7 +29,7 @@ public class Verbindungstest
 	  }
 	  
 	  
-//In folgender Zeile wird er Name des Katalogs �bergeben
+//In folgender Zeile wird er Name des Katalogsuebergeben
 	  JCO.Table tblVariants = getVariants("PUMPS4SALE"); 
 	  for (int i=0; i<tblVariants.getNumRows(); i++)
 	  {
@@ -37,7 +37,7 @@ public class Verbindungstest
 		  System.out.println(tblVariants.getString("PRODCAT") + " --- " + tblVariants.getString("VARIANT")); 
 	  }
 	  
-//In folgender Zeile wird der Name des Katalogs + der Variante �bergeben
+//In folgender Zeile wird der Name des Katalogs + der Variante uebergeben
 	  JCO.Table tblItems = getItems("PUMPS4SALE", "001"); 
 	  for (int i=0; i<tblItems.getNumRows(); i++)
 	  {
@@ -45,6 +45,7 @@ public class Verbindungstest
 		  System.out.println(tblItems.getString("ITEM") + " --- " + tblItems.getString("MATERIAL") + " --- " + tblItems.getString("SORTNR")); 
 	  }
 	  
+	  //getItem benoetigt Katalogname + Variant + Area + Item
 	  JCO.Table tblItemtexts = getItem("PUMPS4SALE", "001", "0000000001", "0000000001"); 
 	  for (int i=0; i<tblItemtexts.getNumRows(); i++)
 	  {
@@ -54,6 +55,7 @@ public class Verbindungstest
 	  }
   }
   
+
   public JCO.Table getList()
   {
 	  Repository mRepository = new JCO.Repository("MyRepository", mConnection);
@@ -119,10 +121,10 @@ public class Verbindungstest
     mConnection.disconnect();
    }
   
-  public static void main(String [] args)
-  {
-      Verbindungstest app = new Verbindungstest();
-    
+//  public static void main(String [] args)
+//  {
+//      Verbindungstest app = new Verbindungstest();
+//    
 //    EventQueue.invokeLater(new Runnable() {
 //
 //        @Override
@@ -131,7 +133,7 @@ public class Verbindungstest
 //            md.setVisible(true);
 //        }
 //    });
-  }
+//  }
   
   private JCO.Function createFunction( IRepository mRepository, String name )
   {
