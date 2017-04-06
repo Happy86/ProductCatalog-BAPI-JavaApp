@@ -121,19 +121,6 @@ public class Verbindungstest
     mConnection.disconnect();
    }
   
-//  public static void main(String [] args)
-//  {
-//      Verbindungstest app = new Verbindungstest();
-//    
-//    EventQueue.invokeLater(new Runnable() {
-//
-//        @Override
-//        public void run() {
-//        	ProductCatalogGUI md = new ProductCatalogGUI();
-//            md.setVisible(true);
-//        }
-//    });
-//  }
   
   private JCO.Function createFunction( IRepository mRepository, String name )
   {
