@@ -27,11 +27,13 @@ public class HalloWeltController {
     @FXML
     private void neuesFensterButton() throws IOException {
                                             // in welcher klasse bin ich
-        FXMLLoader loader = new FXMLLoader(HalloWeltController.class.getResource("/frontend/HalloWelt.fxml"));
+        FXMLLoader loader = new FXMLLoader(HalloWeltController.class.getResource("/frontend/AboutWindow.fxml"));
         ScrollPane root = loader.load();
         // tatsaechliche controller klasse des fxml files
-        HalloWeltController controller = loader.getController();
+        AboutWindowController controller = loader.getController();
+
         Stage primaryStage = new Stage();
+        controller.setStage(primaryStage);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
