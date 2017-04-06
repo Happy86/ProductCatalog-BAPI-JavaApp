@@ -15,6 +15,10 @@ sap-zugangsdaten.properties
 *.class
 bin
 
+# sap fehler log dateien
+dev_rfc.trc
+*.trc
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -37,6 +41,8 @@ backup
 *.pdf
 .metadata
 .settings
+.settings/
+.settings/*
 .DS_Store
 .mailmap
 *.bak

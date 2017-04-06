@@ -3,13 +3,13 @@
  * @authors Tamino, Salvatore, Andreas (ADV Boeblingen, I32-2016/17)
  * @license ISC License (ISC)
  * @since   2017-03-29
- * 
+ *
  * Diese Klasse dient dazu eine nach Java Properties Syntax formatierte
  * Datei zu parsen und als Attribute (ueber get-Methoden) zur Verfuegung
  * zu stellen.
- * 
+ *
  * Bei der Initialisierung des Objekts ist der Pfad samt Dateiname anzugeben.
- * 
+ *
  */
 
 import java.io.FileInputStream;
@@ -30,7 +30,7 @@ public class Config {
 
     /*
      * Config Konstruktor.
-     * 
+     *
      * @param       String          Pfad inkl. Dateiname zur .properties Konfigurationsdatei.
      * @exception   IOException     IOException wenn die Konfigurationsdatei nicht vorhanden oder nicht lesbar ist.
      */
