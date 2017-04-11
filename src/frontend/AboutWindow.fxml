@@ -17,7 +17,7 @@
                </font>
             </Label>
             <TextArea fx:id="aboutTextArea" layoutX="6.0" layoutY="51.0" prefHeight="248.0" prefWidth="534.0" wrapText="true" />
-            <Button layoutX="201.0" layoutY="351.0" mnemonicParsing="false" onAction="#AboutWindow_CloseButton" text="Fenster Schließen" textAlignment="CENTER">
+            <Button layoutX="201.0" layoutY="351.0" mnemonicParsing="false" onAction="#AboutWindow_CloseButton" text="Fenster schließen" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
