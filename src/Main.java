@@ -43,7 +43,7 @@ public class Main extends Application{
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Hallo Welt Fenstertitel");
+        primaryStage.setTitle("ProductCatalog-BAPI-JavaApp");
         primaryStage.sizeToScene();
         primaryStage.show();
         primaryStage.setMinHeight(primaryStage.getHeight());
