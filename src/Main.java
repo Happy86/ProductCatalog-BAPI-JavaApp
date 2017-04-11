@@ -1,4 +1,4 @@
-import frontend.HalloWeltController;
+import frontend.MainWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -35,10 +35,11 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/HalloWelt.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/frontend/MainWindow.fxml"));
         ScrollPane root = loader.load();
-        HalloWeltController controller = loader.getController();
-//        controller.setStage(primaryStage);
+        MainWindowController controller = loader.getController();
+
+        controller.setStage(primaryStage);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
