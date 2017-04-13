@@ -31,6 +31,12 @@ dev_rfc.trc
 hs_err_pid*
 
 
+# sap libs
+sapjcorfc.dll
+librfc32.dll
+sapjco.jar
+
+
 # sonstiges
 
 .vagrant/
