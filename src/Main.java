@@ -1,4 +1,4 @@
-import backend.Verbindungstest;
+import backend.ProductCatalog;
 
 /*
  * @class   Main
@@ -20,7 +20,7 @@ public class Main {
         verbindung.openConnectionToSAP();
 
         // TODO: hier code einfuegen :-)
-        new Verbindungstest(verbindung.getMConnection());
+        new ProductCatalog(verbindung.getMConnection());
 
         // Verbindung zum SAP Server schlieszen.
         verbindung.closeConnectionToSAP();
