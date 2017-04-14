@@ -40,11 +40,13 @@ public class ProductCatalog
 	  for (int i=0; i<l_Items.size(); i++)
 	  {
 		  System.out.println(l_Items.get(i).getArea() + " --- " + l_Items.get(i).getItem() + " --- " +
-		                     l_Items.get(i).getMatnr() + " --- " + l_Items.get(i).getName());
+		                     l_Items.get(i).getMatnr() + " --- " + l_Items.get(i).getName() + " --- " +
+		                     l_Items.get(i).getTitle());
 	  }
 
 	  CatalogItem CI = getItem("PUMPS4SALE", "001", "0000000001", "0000000001");
-	  System.out.println(CI.getMatnr() + " --- " + CI.getName() + " --- " + CI.getTitle() + " --- " + CI.getArea() + " --- " + CI.getItem());
+	  System.out.println(CI.getMatnr() + " --- " + CI.getName() + " --- " + CI.getTitle() + " --- " +
+	                      CI.getArea() + " --- " + CI.getItem());
   }
 
 
