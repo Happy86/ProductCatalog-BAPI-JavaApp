@@ -27,6 +27,6 @@ public class CatalogItems {
 
     public CatalogItem getItem(String nameDesItems) {
         // TODO: get CatalogItem from SAP and pass name and title to new CatalogItem object
-        return new CatalogItem("name", "title");
+        return new CatalogItem("mat_nr", "name", "title", "area", "item");
     }
 }

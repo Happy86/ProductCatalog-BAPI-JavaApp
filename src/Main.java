@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
+import backend.ProductCatalog;
 
 /*
  * @class   Main
@@ -25,9 +26,9 @@ public class Main extends Application{
 //        verbindung.openConnectionToSAP();
 
         // TODO: hier code einfuegen :-)
-//        new Verbindungstest(verbindung.getMConnection());
 
         Application.launch(args);
+//        new ProductCatalog(verbindung.getMConnection());
 
         // Verbindung zum SAP Server schlieszen.
 //        verbindung.closeConnectionToSAP();
