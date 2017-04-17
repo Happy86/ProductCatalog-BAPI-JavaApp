@@ -25,7 +25,6 @@ public class CatalogItem {
     private String s_title;
     private String s_area;
     private String s_item;
-    @SuppressWarnings("unused")
     private ProductCatalog prodcat;
     private String s_variant;
     private String s_catalog;

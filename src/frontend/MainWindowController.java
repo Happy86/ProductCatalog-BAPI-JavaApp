@@ -123,7 +123,6 @@ public class MainWindowController implements Initializable{
     TextField tf_title = new TextField();
     @FXML
     private void getItemClicked() {
-        int choice = this.TableViewProduktliste.getSelectionModel().getSelectedIndex();
         CatalogItem temp = this.TableViewProduktliste.getSelectionModel().getSelectedItem();
         temp.retrieveNameAndTitle();
         tf_name.setText(temp.getName());
