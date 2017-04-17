@@ -10,23 +10,33 @@
 
 package model;
 
-import java.util.Arrays;
-import java.util.Vector;
+import java.util.List;
+
+import backend.ProductCatalog;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class CatalogItems {
-    private Vector<String> katalogitems;
+    private List<CatalogItem> katalogitems;
+    private ObservableList<CatalogItem> itemObjekte;
+    private ProductCatalog prodcat;
+    private String s_variantenname;
+    private String s_katalogname;
 
-    public CatalogItems(String[] itemliste) {
-        this.katalogitems = new Vector<String>();
-        this.katalogitems.addAll(Arrays.asList(itemliste));
+    public CatalogItems(String s_nameDerVariante, String s_nameDesKatalogs, ProductCatalog prodcat) {
+        this.prodcat = prodcat;
+        this.s_katalogname = s_nameDesKatalogs;
+        this.s_variantenname = s_nameDerVariante;
+
+        this.katalogitems = this.prodcat.getItems(this.s_katalogname, this.s_variantenname);
+        for(CatalogItem item : this.katalogitems) {
+            item.setVarianteKatalogUndProdcat(this.s_variantenname, this.s_katalogname, this.prodcat);
+        }
+
+        this.itemObjekte = FXCollections.observableArrayList(this.katalogitems);
     }
 
-    public CatalogItem getItem(int itemNummerAusKatalogitems) {
-        return getItem(this.katalogitems.get(itemNummerAusKatalogitems));
-    }
-
-    public CatalogItem getItem(String nameDesItems) {
-        // TODO: get CatalogItem from SAP and pass name and title to new CatalogItem object
-        return new CatalogItem("mat_nr", "name", "title", "area", "item");
+    public ObservableList<CatalogItem> getListOfItemObjekte() {
+        return this.itemObjekte;
     }
 }

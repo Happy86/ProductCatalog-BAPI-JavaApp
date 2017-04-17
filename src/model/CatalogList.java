@@ -11,31 +11,38 @@
 
 package model;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
+
+import backend.ProductCatalog;
 
 public class CatalogList {
     private Vector<String> katalogliste;
+    private ProductCatalog prodcat;
 
-    public CatalogList(String[] katalogliste) {
-        this.katalogliste = new Vector<String>();
-        this.katalogliste.addAll(Arrays.asList(katalogliste));
+    public CatalogList(ProductCatalog prodcat) { //Vector<String> katalogliste
+        this.prodcat = prodcat;
+        this.katalogliste = this.prodcat.getList();
+//        this.katalogliste.addAll(Arrays.asList(katalogliste));
     }
 
-    public CatalogVariants getVariants(int katalogNummerAusKataloglistenVektor) {
-        return getVariants(katalogliste.get(katalogNummerAusKataloglistenVektor));
+    public CatalogVariants getVariants(int i_katalogNummerAusKataloglistenVektor) {
+        return getVariants(katalogliste.get(i_katalogNummerAusKataloglistenVektor));
     }
 
-    public CatalogVariants getVariants(String nameDesKatalogs) {
+    public CatalogVariants getVariants(String s_nameDesKatalogs) {
         // TODO: get variants from given catalog from SAP as String array
-        return new CatalogVariants(new String[1]);
+        return new CatalogVariants(s_nameDesKatalogs, this.prodcat);
     }
 
     /**
      * @return the katalogliste
      */
     public Vector<String> getKatalogliste() {
-        return katalogliste;
+        return this.katalogliste;
     }
 
+    public List<String> getListOfKatalogliste() {
+        return this.katalogliste;
+    }
 }
