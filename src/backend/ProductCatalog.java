@@ -17,25 +17,28 @@ public class ProductCatalog
   public ProductCatalog(JCO.Client mConnection)
   {
       this.mConnection = mConnection;
-      connectionAttributes();
+//      connectionAttributes();
   }
 
   public void connectionAttributes()//<---das ist eine Entwickler-Test-Methode
   {
-      //System.out.println(mConnection.getAttributes());
+      System.out.println(mConnection.getAttributes());
 
+      System.out.println("\n\nGET LIST");
 	  Vector<String> v_ProductCatalogs = getList();
 	  for (int i=0; i<v_ProductCatalogs.size(); i++)
 	  {
 		  System.out.println(v_ProductCatalogs.get(i));
 	  }
 
+	  System.out.println("\n\nGET VARIANTS");
       Vector<String> v_Variants = getVariants("PUMPS4SALE");
       for (int i=0; i<v_Variants.size(); i++)
       {
           System.out.println(v_Variants.get(i));
       }
 
+      System.out.println("\n\nGET ITEMS");
 	  List<CatalogItem> l_Items = getItems("PUMPS4SALE", "001");
 	  for (int i=0; i<l_Items.size(); i++)
 	  {
@@ -44,6 +47,7 @@ public class ProductCatalog
 		                     l_Items.get(i).getTitle());
 	  }
 
+	  System.out.println("\n\nGET ITEM");
 	  CatalogItem CI = getItem("PUMPS4SALE", "001", "0000000001", "0000000001");
 	  System.out.println(CI.getMatnr() + " --- " + CI.getName() + " --- " + CI.getTitle() + " --- " +
 	                      CI.getArea() + " --- " + CI.getItem());
@@ -103,7 +107,7 @@ public class ProductCatalog
                                              null,
                                              null,
                                              tbl_Items.getString("AREA"),
-                                             tbl_Items.getString("ITEM"))) ;
+                                             tbl_Items.getString("ITEM")));
       }
 	  return al_CatalogItems;
   }
