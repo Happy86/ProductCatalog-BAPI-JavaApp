@@ -1,3 +1,13 @@
+/*
+ * @class   Main
+ * @authors Tamino, Salvatore, Andreas (ADV Boeblingen, I32-2016/17)
+ * @license ISC License (ISC)
+ * @since   2017-03-29
+ *
+ * Diese Klasse dient zur initialisierung der Anwendung.
+ *
+ */
+
 import backend.ProductCatalog;
 import frontend.MainWindowController;
 import javafx.application.Application;
@@ -8,15 +18,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import model.CatalogList;
 
-/*
- * @class   Main
- * @authors Tamino, Salvatore, Andreas (ADV Boeblingen, I32-2016/17)
- * @license ISC License (ISC)
- * @since   2017-03-29
- *
- * Diese Klasse dient zur initialisierung der Anwendung.
- *
- */
 
 public class Main extends Application{
     private SAPVerbindung verbindung;
