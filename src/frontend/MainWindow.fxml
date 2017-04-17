@@ -68,8 +68,8 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_name" layoutX="150.0" layoutY="696.0" prefHeight="25.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="15.0" />
-            <TextField fx:id="tf_title" layoutX="150.0" layoutY="724.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="15.0" />
+            <TextField fx:id="tf_name" editable="false" layoutX="150.0" layoutY="696.0" prefHeight="25.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="15.0" />
+            <TextField fx:id="tf_title" editable="false" layoutX="150.0" layoutY="724.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="15.0" />
             <Button layoutX="15.0" layoutY="649.0" mnemonicParsing="false" onAction="#getItemClicked" text="Produktname und Titel anzeigen (GetItem)">
                <font>
                   <Font size="16.0" />
