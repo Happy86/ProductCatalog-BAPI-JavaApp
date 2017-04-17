@@ -78,7 +78,6 @@ public class CatalogItem {
         return this.s_item;
     }
 
-    //
     public StringProperty getSPMatnr() {
         return this.sp_mat_nr;
     }

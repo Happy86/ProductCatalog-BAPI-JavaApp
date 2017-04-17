@@ -27,10 +27,9 @@ public class ProductCatalog
   public ProductCatalog(JCO.Client mConnection)
   {
       this.mConnection = mConnection;
-//      connectionAttributes();
   }
 
-  public void connectionAttributes()//<---das ist eine Entwickler-Test-Methode
+  /*public void connectionAttributes()//<---das ist eine Entwickler-Test-Methode
   {
       System.out.println(mConnection.getAttributes());
 
@@ -61,8 +60,7 @@ public class ProductCatalog
 	  CatalogItem CI = getItem("PUMPS4SALE", "001", "0000000001", "0000000001");
 	  System.out.println(CI.getMatnr() + " --- " + CI.getName() + " --- " + CI.getTitle() + " --- " +
 	                      CI.getArea() + " --- " + CI.getItem());
-  }
-
+  }*/
 
   public Vector<String> getList()
   {
@@ -108,11 +106,9 @@ public class ProductCatalog
       JCO.Table tbl_Items = function.getTableParameterList().getTable("ITEMS");
 
       List<CatalogItem> al_CatalogItems = new ArrayList<CatalogItem>();
-   //   Vector<String> v_Items = new Vector<String>(tbl_Items.getNumRows(), 1);
       for (int i=0; i<tbl_Items.getNumRows(); i++)
       {
          tbl_Items.setRow(i);
-  //       v_Items.add(tbl_Items.getString("MATERIAL"));
          al_CatalogItems.add(new CatalogItem(tbl_Items.getString("MATERIAL"),
                                              null,
                                              null,
@@ -137,28 +133,6 @@ public class ProductCatalog
       return new CatalogItem(tbl_Itemdetails.getString("MATERIAL"), tbl_Itemtexts.getString("NAME"),
                              tbl_Itemtexts.getString("TITLE"), s_area, s_item);
   }
-
-/*  public CatalogItem getItem(String s_catalog, String s_variant, String s_area, String s_item)
-  {
-	  Repository mRepository = new JCO.Repository("MyRepository", mConnection);
-	  JCO.Function function = this.createFunction( mRepository, "BAPI_PRODCAT_GETITEM");
-	  function.getImportParameterList().setValue(s_catalog, "CATALOG");
-	  function.getImportParameterList().setValue(s_variant, "VARIANT");
-	  function.getImportParameterList().setValue(s_area, "AREA");
-	  function.getImportParameterList().setValue(s_item, "ITEM");
-	  mConnection.execute(function);
-	  JCO.Table tblItemtexts = function.getTableParameterList().getTable("ITEMTEXTS");
-
-
-	  for (int i=0; i<tblItemtexts.getNumRows(); i++)
-	  {
-	     tblItemtexts.setRow(i);
-	     System.out.println(tblItemtexts.getString("LAYOUT") + "';'" + tblItemtexts.getString("AREA") + "';'" + tblItemtexts.getString("ITEM") +
-	        "';'" + tblItemtexts.getString("NAME") + "';'" + tblItemtexts.getString("LANGU"));
-	  }
-
-	  return new CatalogItem(s_item, tblItemtexts.getString("NAME"))
-  }*/
 
   public void openConnectionToSAP(String clientSAP, String login, String passwort, String language, String server, String systemNumber)
   {
