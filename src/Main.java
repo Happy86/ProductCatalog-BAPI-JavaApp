@@ -1,10 +1,12 @@
+import backend.ProductCatalog;
 import frontend.MainWindowController;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
-import backend.ProductCatalog;
+import model.CatalogList;
 
 /*
  * @class   Main
@@ -17,21 +19,11 @@ import backend.ProductCatalog;
  */
 
 public class Main extends Application{
+    private SAPVerbindung verbindung;
+
     public static void main(String[] args) {
-        // Konfigurationsdatei auslesen.
-        Config einstellungen = new Config("sap-zugangsdaten.properties");
-
-        // Verbindung zum SAP Server aufbauen.
-//        SAPVerbindung verbindung = new SAPVerbindung(einstellungen);
-//        verbindung.openConnectionToSAP();
-
-        // TODO: hier code einfuegen :-)
-
+        // Anwendungsstart mit JavaFX (GUI)
         Application.launch(args);
-//        new ProductCatalog(verbindung.getMConnection());
-
-        // Verbindung zum SAP Server schlieszen.
-//        verbindung.closeConnectionToSAP();
     }
 
     @Override
@@ -40,8 +32,18 @@ public class Main extends Application{
         ScrollPane root = loader.load();
         MainWindowController controller = loader.getController();
 
-        controller.setStage(primaryStage);
+        Config einstellungen = new Config("sap-zugangsdaten.properties");
+        verbindung = new SAPVerbindung(einstellungen);
+        verbindung.openConnectionToSAP();
+        ProductCatalog prodcatObjekt = new ProductCatalog(verbindung.getMConnection());
+        CatalogList Katalogliste = new CatalogList(prodcatObjekt);
+        controller.setKatalogliste(Katalogliste);
 
+        controller.setKataloglisteData(FXCollections.observableList(Katalogliste.getListOfKatalogliste()));
+        controller.getListViewKatalogliste().setItems(controller.getKataloglisteData());
+
+
+        controller.setStage(primaryStage);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("ProductCatalog-BAPI-JavaApp");
@@ -49,5 +51,12 @@ public class Main extends Application{
         primaryStage.show();
         primaryStage.setMinHeight(primaryStage.getHeight());
         primaryStage.setMinWidth(primaryStage.getWidth());
+    }
+
+    @Override
+    public void stop(){
+        // Beim schlieszen des letzten Fensters die Verbindung zum SAP Server schlieszen.
+        System.out.println("Beende Programm, schließe Verbindung zum SAP Server.");
+        this.verbindung.closeConnectionToSAP();
     }
 }
